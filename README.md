@@ -1,6 +1,8 @@
 # Pokemon-Community-Game-Spawn-Countdown
 My version of the HTML for the Pokemon Community Game Spawn Countdown Extension on Twitch
 
+CodePen: [Here](https://codepen.io/mine-patcher/pen/VwJqyoe)
+
 ## How to Use:
 1. Download the File <PokemonCommunityGame.html>
 2. Setup an OBS Browser Source in OBS.
