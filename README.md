@@ -5,7 +5,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 1. Download the File <PokemonCommunityGame.html>
 2. Setup an OBS Browser Source in OBS.
 ![PCG_1](https://github.com/user-attachments/assets/241d7ec0-8db0-4c62-8d65-cb128bb02954)
-- URL: file://&lt;PokemonCommunityGame.html&gt;
+- URL: file://&lt;PokemonCommunityGame.html Location&gt;
 - Height: 180
 - Width: 180
 ### Params:
