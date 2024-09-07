@@ -1,0 +1,174 @@
+<html>
+<head>
+<style>
+body,
+fieldset,
+legend,
+img,
+h1 {
+  display: flex;
+  box-sizing: content-box;
+}
+body {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+fieldset {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: unset;
+  margin: unset;
+  border-color: #fdc331;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  height: 166px;
+  filter: drop-shadow(0 1px 1px #000);
+}
+legend {
+  margin: auto;
+  color: #fdc331;
+  filter: drop-shadow(0 1px #000);
+}
+img {
+  height: 100%;
+  width: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(1px 1px 1px #000);
+}
+h1 {
+  margin: 0px;
+  color: #fdc331;
+  filter: drop-shadow(1px 1px 1px #000);
+  font-size: 2.5em;
+}
+
+</style>
+</head>
+<body>
+<fieldset>
+	<legend id="legend" >Next Pokemon</legend>
+	<img id="sprite-image" loading="lazy" src="https://dev.bframework.de/static/pokedex/sprites/question512.png"> </img>
+	<h1 id="countdown">00:00</h1>
+</fieldset>
+<script>
+/* How To Use:
+  Use Any Mode and add parameters to the URL.
+  Params:
+  - spawn: Show/Hide the Spawn Image
+      No Param: Default Parameter set to 'pic'.
+      gif: Show the Spawn GIF.
+      pic: Show the Spawn IMG.
+      hide: Hide Spawn Image.
+  - timer: Show/Hide the Timer
+      No Param: Default Parameter shows the Timer.
+      true: Show Timer
+      false: Hide Timer
+*/
+
+const backend_url = "https://poketwitch.bframework.de/",
+  image_url = "https://dev.bframework.de/";
+
+const urlParams = new URLSearchParams(window.location.search),
+  spawn = urlParams.get("spawn") ?? "pic",
+  timer = urlParams.get("timer") !== "false";
+
+var sprite = document.getElementById("sprite-image"),
+  countdown = document.getElementById("countdown"),
+    legend = document.getElementById("legend");
+var last_pokedex_id = 0,
+  next_spawn,
+  pokedex_id,
+  order;
+
+if(spawn === "hide") {
+  sprite.style = "display:none;";
+}
+
+if(timer !== true) {
+  countdown.style = "display: none;";
+}
+
+function display_image(string) {
+  sprite.src = image_url + string;
+}
+
+function str_pad_left(string, pad, length) {
+  return (new Array(length + 1).join(pad) + string).slice(-length);
+}
+
+async function fetch_data() {
+  await fetch(backend_url + "info/events/last_spawn/")
+    .then((res) => res.json())
+    .then((data) => {
+      next_spawn = data.next_spawn;
+      pokedex_id = data.pokedex_id;
+      order = data.order;
+    })
+    .catch((error) => {
+      next_spawn = 0;
+      pokedex_id = 0;
+      order = 0;
+      display_image("static/pokedex/sprites/question512.png");
+    });
+}
+
+async function mainloop() {
+  await fetch_data();
+  function cooldown_wait() {
+    if (next_spawn >= 0) {
+      if(timer) {
+        // setup timer
+      var minutes = Math.floor(next_spawn / 60);
+      var seconds = next_spawn - minutes * 60;
+      
+      countdown.innerHTML =
+        str_pad_left(minutes, "0", 2) + ":" + str_pad_left(seconds, "0", 2);
+
+      }
+      
+      if (next_spawn > 810 && last_pokedex_id !== pokedex_id) {
+        // 13  minutes 30 seconds and different pokemon
+        last_pokedex_id = pokedex_id;
+        
+        legend.innerHTML = "!pokecatch &lt;pokeball&gt;";
+        
+        if(spawn === "gif") {
+          display_image("static/pokedex/sprites/front/" + pokedex_id + ".gif");
+        } else if(spawn === "pic") {
+          display_image("static/pokedex/png-high-res-sprites/pokemon/" + order + ".png");
+        }
+
+        // remove picture in 90 seconds
+        var hide_picture_seconds = next_spawn - 810;
+        setTimeout(function () {
+          legend.innerHTML = "Next Pokemon";
+          display_image("static/pokedex/sprites/question512.png");
+        }, hide_picture_seconds * 1000);
+
+        // reset image at 810 seconds
+      }
+      setTimeout(function () {
+        cooldown_wait();
+      }, 1000);
+    } else {
+      setTimeout(function () {
+        mainloop();
+      }, 1000);
+    }
+    next_spawn -= 1;
+  }
+  cooldown_wait();
+}
+
+mainloop();
+
+</script>
+</body>
+</html>
