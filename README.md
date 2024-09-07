@@ -15,7 +15,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 ### Examples:
 1.  Default: ?spawn=pic&timer=true
 
-![image](https://github.com/user-attachments/assets/f78bd00e-9376-40f7-a0c1-6354a715b7f3)
+![PCG_2](https://github.com/user-attachments/assets/436133db-6c3a-46ec-b39f-29abd01e02ef)
 
 2. No Timer: ?spawn=pic&timer=false
 
@@ -23,7 +23,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 
 3. GIF: ?spawn=gif&timer=true
 
-
+![PCG_3](https://github.com/user-attachments/assets/bed95381-ec4e-4771-8a23-fee66b154f57)
 
 4. Only Timer: ?spawn=hide&timer=true
 
