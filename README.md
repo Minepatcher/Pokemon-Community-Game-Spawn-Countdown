@@ -13,6 +13,7 @@ CodePen: [Here](https://codepen.io/mine-patcher/pen/VwJqyoe)
 ### Params:
 - spawn: [gif/pic/hide]
 - timer: [true/false]
+- audio: [true/false]
 
 ### Examples:
 1.  Default: ?spawn=pic&timer=true
