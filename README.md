@@ -12,8 +12,11 @@ CodePen: [Here](https://codepen.io/mine-patcher/pen/VwJqyoe)
 - Width: 180
 ### Params:
 - spawn: [gif/pic/hide]
+    - Default: pic
 - timer: [true/false]
+    - Default: true
 - audio: [true/false]
+    - Default: false
 
 ### Examples:
 1.  Default: ?spawn=pic&timer=true
