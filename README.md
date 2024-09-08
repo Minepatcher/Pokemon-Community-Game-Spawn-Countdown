@@ -7,7 +7,7 @@ CodePen: [Here](https://codepen.io/mine-patcher/pen/VwJqyoe)
 1. Download the File <PokemonCommunityGame.html>
 2. Setup an OBS Browser Source in OBS.
 ![PCG_1](https://github.com/user-attachments/assets/241d7ec0-8db0-4c62-8d65-cb128bb02954)
-- URL: file://&lt;PokemonCommunityGame.html Location&gt;
+- URL: file://&lt;PokemonCommunityGame.html Location&gt;?&lt;Parameters&gt;
 - Height: 180
 - Width: 180
 ### Params:
