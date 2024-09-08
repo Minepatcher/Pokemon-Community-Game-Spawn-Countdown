@@ -57,6 +57,8 @@ h1 {
 	<img id="sprite-image" loading="lazy" src="https://dev.bframework.de/static/pokedex/sprites/question512.png"> </img>
 	<h1 id="countdown">00:00</h1>
 </fieldset>
+<audio id="audio-1" src="https://www.myinstants.com/media/sounds/wild-pokemon-battle.mp3" type="audio/mpeg" />
+<audio id="audio-2" src="https://www.myinstants.com/media/sounds/pokemon-redblueyellow-run-away-sound-effect.mp3" type="audio/mpeg" />
 <script>
 /* How To Use:
   Add parameters to the URL.
@@ -70,6 +72,10 @@ h1 {
       No Param: Default Parameter shows the Timer.
       true: Show Timer
       false: Hide Timer
+  - audio: Add/Remove Audio
+      No Param: Default to No Audio.
+      true: Play Audio.
+      false: Mute Audio.
 */
 
 const backend_url = "https://poketwitch.bframework.de/",
@@ -77,15 +83,21 @@ const backend_url = "https://poketwitch.bframework.de/",
 
 const urlParams = new URLSearchParams(window.location.search),
   spawn = urlParams.get("spawn") ?? "pic",
-  timer = urlParams.get("timer") !== "false";
+  timer = urlParams.get("timer") !== "false",
+  audio = urlParams.get("audio") === "true";
 
 var sprite = document.getElementById("sprite-image"),
   countdown = document.getElementById("countdown"),
-    legend = document.getElementById("legend");
+  legend = document.getElementById("legend"),
+  sAud1 = document.getElementById("audio-1"),
+  sAud2 = document.getElementById("audio-2");
 var last_pokedex_id = 0,
   next_spawn,
   pokedex_id,
   order;
+
+sAud1.volume = 0.1;
+sAud2.volume = 0.1;
 
 if(spawn === "hide") {
   sprite.style = "display:none;";
@@ -137,7 +149,15 @@ async function mainloop() {
         // 13  minutes 30 seconds and different pokemon
         last_pokedex_id = pokedex_id;
         
-        legend.innerHTML = "!pokecatch &lt;pokeball&gt;";
+		if(audio) {
+			sAud1.play();
+			setTimeout(function () {
+				sAud1.pause();
+				sAud1.currentTime = 0;
+			}, 3000);
+		}
+		
+		legend.innerHTML = "!pokecatch &lt;pokeball&gt;";
         
         if(spawn === "gif") {
           display_image("static/pokedex/sprites/front/" + pokedex_id + ".gif");
@@ -150,6 +170,9 @@ async function mainloop() {
         setTimeout(function () {
           legend.innerHTML = "Next Pokemon";
           display_image("static/pokedex/sprites/question512.png");
+		  if(audio) {
+			sAud2.play();
+		  }
         }, hide_picture_seconds * 1000);
 
         // reset image at 810 seconds
@@ -168,7 +191,7 @@ async function mainloop() {
 }
 
 mainloop();
-
+	
 </script>
 </body>
 </html>
