@@ -16,27 +16,31 @@ body {
 }
 fieldset {
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   padding: unset;
   margin: unset;
   border-color: #fdc331;
   border-radius: 10px;
   aspect-ratio: 1 / 1;
-  height: 166px;
+  height: 146px;
   filter: drop-shadow(0 1px 1px #000);
 }
 legend {
   margin: auto;
   color: #fdc331;
   filter: drop-shadow(0 1px #000);
+  height: 18px;
+}
+legend:after {
+  content: "Next Pokemon";
+}
+legend.catchPokemon:after {
+  content: "!pokecatch";
 }
 img {
-  height: 100%;
-  width: 100%;
-  max-height: 100px;
-  max-width: 100px;
-  object-fit: contain;
+  height: 80px;
+  width: 80px;
+  object-fit: scale-down;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,20 +52,19 @@ h1 {
   filter: drop-shadow(1px 1px 1px #000);
   font-size: 2.5em;
 }
-
 </style>
 </head>
 <body>
-<fieldset>
-	<legend id="legend" >Next Pokemon</legend>
+<fieldset id="fieldset">
+	<legend id="legend" ></legend>
 	<img id="sprite-image" loading="lazy" src="https://dev.bframework.de/static/pokedex/sprites/question512.png"> </img>
 	<h1 id="countdown">00:00</h1>
 </fieldset>
-<audio id="audio-1" src="https://www.myinstants.com/media/sounds/wild-pokemon-battle.mp3" type="audio/mpeg" />
-<audio id="audio-2" src="https://www.myinstants.com/media/sounds/pokemon-redblueyellow-run-away-sound-effect.mp3" type="audio/mpeg" />
+<audio id="audio-1" src="https://www.myinstants.com/media/sounds/wild-pokemon-battle.mp3" type="audio/mpeg"></audio>
+<audio id="audio-2" src="https://www.myinstants.com/media/sounds/pokemon-redblueyellow-run-away-sound-effect.mp3" type="audio/mpeg"></audio>
 <script>
 /* How To Use:
-  Add parameters to the URL.
+  Use Any Mode and add parameters to the URL.
   Params:
   - spawn: Show/Hide the Spawn Image
       No Param: Default Parameter set to 'pic'.
@@ -156,8 +159,8 @@ async function mainloop() {
 				sAud1.currentTime = 0;
 			}, 3000);
 		}
-		
-		legend.innerHTML = "!pokecatch &lt;pokeball&gt;";
+	      
+		legend.classList.toggle("catchPokemon");
         
         if(spawn === "gif") {
           display_image("static/pokedex/sprites/front/" + pokedex_id + ".gif");
@@ -168,7 +171,8 @@ async function mainloop() {
         // remove picture in 90 seconds
         var hide_picture_seconds = next_spawn - 810;
         setTimeout(function () {
-          legend.innerHTML = "Next Pokemon";
+          legend.classList.toggle("catchPokemon");
+	
           display_image("static/pokedex/sprites/question512.png");
 		  if(audio) {
 			sAud2.play();
@@ -191,7 +195,6 @@ async function mainloop() {
 }
 
 mainloop();
-	
 </script>
 </body>
 </html>
