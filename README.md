@@ -6,7 +6,7 @@ CodePen: [Here](https://codepen.io/mine-patcher/pen/VwJqyoe)
 ## How to Use:
 1. Download the File <PokemonCommunityGame.html> or use URL (https://minepatcher.github.io/pokemon-community-game/)
 2. Setup an OBS Browser Source in OBS.
-![PCG_1](https://github.com/user-attachments/assets/241d7ec0-8db0-4c62-8d65-cb128bb02954)
+![image](https://github.com/user-attachments/assets/fa1ef8aa-a391-4ecb-bef5-a92fee580228)
 - URL: file://&lt;PokemonCommunityGame.html Location&gt;?&lt;Parameters&gt;
 - Height: 160
 - Width: 160
