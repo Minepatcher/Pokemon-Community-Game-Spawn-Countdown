@@ -15,6 +15,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 - `Control audio via OBS` : `check` ***IF USING AUDIO PARAM***
 - `Custom CSS` : `optional`
 ## Params
+The following are the params available.
 - `spawn` : `[gif/pic/hide]`
     - Default : `pic`
 - `timer` : `[true/false]`
@@ -24,6 +25,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
     > Please be sure to select ***`Control audio via OBS`*** to stream the audio. *Else only the creator will hear it.*
  
 ## CSS Stylings
+You can create your own wording choices with the CSS Stylings down below!
 - *Before Catch Period*
     - Default :
       ``` CSS
