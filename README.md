@@ -9,7 +9,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 
     ![image](https://github.com/user-attachments/assets/fa1ef8aa-a391-4ecb-bef5-a92fee580228)
 - `Local file` : `uncheck`
-- `URL` : `file://<file location>?<param>&<param>` or `https://minepatcher.github.io/pokemon-community-game/`
+- `URL` : `file://<file location>?<param>&<param>` or `https://minepatcher.github.io/pokemon-community-game/?<param>`
 - `Height` : `160`
 - `Width` : `160`
 - `Control audio via OBS` : `check` ***IF USING AUDIO PARAM***
