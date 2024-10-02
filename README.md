@@ -36,26 +36,39 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
       ```
 
 ## Param Examples
-### Default
+### PIC W/ TIMER
 ```
 ?spawn=pic&timer=true
 ```
-![PCG_2](https://github.com/user-attachments/assets/436133db-6c3a-46ec-b39f-29abd01e02ef)
+![Default](https://github.com/user-attachments/assets/b5f5fc5e-4118-4e06-8400-5bede2bf3493)
+![Catch_Default_PNG](https://github.com/user-attachments/assets/dbd65bf3-394f-45d6-a195-93378164df54)
 
-### No Timer
+### PIC W/O TIMER
 ```
 ?spawn=pic&timer=false
 ```
-![image](https://github.com/user-attachments/assets/3dcc80ff-1aed-43df-8954-c96cef8c6850)
+![Default_Spawn](https://github.com/user-attachments/assets/bef67938-ed00-493a-ae2a-f6c92777fc70)
+![Catch_Spawn_PNG](https://github.com/user-attachments/assets/9b6883a1-d5d8-4c4c-93f2-bb8f21726c8a)
 
-### GIF
+
+### GIF W/ TIMER
 ```
 ?spawn=gif&timer=true
 ```
-![PCG_3](https://github.com/user-attachments/assets/bed95381-ec4e-4771-8a23-fee66b154f57)
+![Default](https://github.com/user-attachments/assets/d75c0183-8de2-4457-bc87-3c39bf63155d)
+![Catch_Default_GIF](https://github.com/user-attachments/assets/7c90d9ad-d9e4-4ff3-82a8-260b16bf36c2)
 
-### Only Timer
+### GIF W/O TIMER
+```
+?spawn=gif&timer=false
+```
+![Default_Spawn](https://github.com/user-attachments/assets/5acd196c-a789-496b-8319-ca05daa6c6d1)
+![Catch_Spawn_GIF](https://github.com/user-attachments/assets/7357e1e0-0899-40b7-ae58-07a0f73b3d80)
+
+
+### TIMER ONLY
 ```
 ?spawn=hide&timer=true
 ```
-![image](https://github.com/user-attachments/assets/29241c6c-974a-427d-bfc6-4fb80019af93)
+![Default_Timer](https://github.com/user-attachments/assets/af85089b-0e21-4869-9197-9315b3324469)
+![Catch_Timer](https://github.com/user-attachments/assets/b21f4125-9519-404e-8684-60e497d2e4c7)
