@@ -13,7 +13,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 - `Height` : `160`
 - `Width` : `160`
 - `Control audio via OBS` : `check` ***IF USING AUDIO PARAM***
-- `Custom CSS` : `optional`
+- `Custom CSS` : `optional otherwise leave blank`
 ## Params
 The following are the params available.
 - `spawn` : `[gif/pic/hide]`
