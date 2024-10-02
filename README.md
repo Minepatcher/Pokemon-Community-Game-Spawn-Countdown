@@ -3,7 +3,7 @@ My version of the HTML for the Pokemon Community Game Spawn Countdown Extension 
 
 ##### [CodePen Example](https://codepen.io/mine-patcher/pen/VwJqyoe)
 
-## How to Use:
+## How to Use
 1. Download the File [PokemonCommunityGame.html](/PokemonCommunityGame.html) or use https://minepatcher.github.io/pokemon-community-game/
 2. Setup an OBS Browser Source in OBS.
 
